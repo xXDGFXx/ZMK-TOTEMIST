@@ -222,8 +222,6 @@ label= "NUM"                               ;
     &none       &kp N0      &kp N1      &kp N2      &kp N3      &kp EQUAL       &kp COMMA    &kp BSPC   &kp DEL     &trans      &trans      &none
                                         &trans      &kp DOT     &kp SPC         &trans       &trans      &trans
                         >;
-                };
-        };
 };
 
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
