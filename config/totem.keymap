@@ -11,9 +11,7 @@
 #define NAV  2
 #define NUM  3
 #define ADJ  4
-
-&mt {
-};
+#define QCK  5
 
 &sk {
     // don't release mods on other mods presses
@@ -25,11 +23,10 @@
 };
 
 &mt {
+    global-quick-tap;
     quick-tap-ms = <200>;
     flavor = "tap-preferred";
-    global-quick-tap;
-    flavor = "tap-preferred";
-    tapping-term-ms = <170>;
+    tapping-term-ms = <190>;
 };
 
 
@@ -76,20 +73,18 @@
         };
     };
 
-    macros {};
-
     combos {
         compatible = "zmk,combos";
 
         // both right thumb keys
 
-        combo_toggle_numpad {
-            key-positions = <32 33>;
-            bindings = <&tog 3>;
-            layers = <0 3>;
-            require-prior-idle-ms = <250>;
-            timeout-ms = <150>;
-        };
+        // combo_toggle_numpad {
+        //     key-positions = <32 33>;
+        //     bindings = <&tog 3>;
+        //     layers = <0 3>;
+        //     require-prior-idle-ms = <250>;
+        //     timeout-ms = <150>;
+        // };
 
         // internal-left & external-right thumb keys
         // combo_sym2 {
@@ -130,17 +125,17 @@ label= "BASE"                              ;
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
 //             ┃     Q     ┃     W     ┃     E     ┃     R     ┃     T     ┃   ┃     Y     ┃     U     ┃     I     ┃     O     ┃     P     ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃     A     ┃     S     ┃     D     ┃     F     ┃     G     ┃   ┃     H     ┃     J     ┃     K     ┃     L     ┃     ;     ┃
+//             ┃     A     ┃  LSFT/S   ┃  LCTRL/D  ┃  LALT/F   ┃     G     ┃   ┃     H     ┃   RALT/J  ┃  RCTRL/K  ┃  RSHFT/L  ┃     ;     ┃
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
 // ┃           ┃     Z     ┃     X     ┃     C     ┃     V     ┃     B     ┃   ┃     N     ┃     M     ┃     ,     ┃     .     ┃     /     ┃           ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃    ESC    ┃    TAB    ┃    SPC    ┃   ┃   ENTER   ┃   BSPC    ┃    DEL    ┃
+//                                     ┃    ESC    ┃    TAB    ┃    SPC    ┃   ┃    ENTR   ┃   BSPC    ┃    DEL    ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
                 &kp Q       &kp W       &kp E       &kp R       &kp T           &kp Y       &kp U       &kp I       &kp O       &kp P
-                &kp A       &mt LSHFT S &mt LCTRL D &mt LALT F  &kp G           &kp H       &mt RALT J  &mt RCTRL K &mt RSHFT L &kp SEMI
+                &kp A       &hml LSHFT S  &hml LCTRL D  &hml LALT F  &kp G      &kp H       &hmr RALT J  &hmr RCTRL K  &hmr RSHFT L &kp SEMI
     &kp ESC     &kp Z       &kp X       &kp C       &kp V       &kp B           &kp N       &kp M       &kp COMMA   &kp DOT     &kp FSLH    &kp DQT
                                         &kp ESC     &lt NAV TAB &kp SPACE       &lt NUM RET &lt SYM BSPC &kp DEL
                         >;
@@ -158,9 +153,9 @@ label= "SYM"                               ;
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
 //             ┃     `     ┃     [     ┃     (     ┃     {     ┃     =     ┃   ┃     +     ┃     _     ┃     <     ┃     >     ┃     :     ┃
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃           ┃     ~      ┃     ]     ┃     )     ┃     }     ┃     ?     ┃   ┃     -     ┃     |     ┃     ,     ┃     .     ┃     \     ┃           ┃
+// ┃           ┃     ~     ┃     ]     ┃     )     ┃     }     ┃     ?     ┃   ┃     -     ┃     |     ┃     ,     ┃     .     ┃     \     ┃           ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-//                                     ┃           ┃    TAB    ┃    SPC    ┃   ┃    DEL    ┃     0     ┃           ┃
+//                                     ┃           ┃    ADJ    ┃    NUM    ┃   ┃           ┃           ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
@@ -168,7 +163,7 @@ label= "SYM"                               ;
                 &kp EXCL    &kp AT      &kp POUND   &kp DOLLAR  &kp PERCENT     &kp CARET   &kp AMPS    &kp ASTRK   &kp DQT     &kp SQT
                 &kp GRAVE   &kp LBKT    &kp LPAR    &kp LBRC    &kp EQUAL       &kp PLUS    &kp UNDER   &kp LT      &kp GT      &kp COLON
     &none       &kp TILDE   &kp RBKT    &kp RPAR    &kp RBRC    &kp QUESTION    &kp MINUS   &kp PIPE    &kp COMMA   &kp PERIOD  &kp SLASH   &none
-                                        &trans      &mo 4       &mo 3           &trans       &none     &trans
+                                        &trans      &mo ADJ     &mo NUM         &trans       &none     &trans
                         >;
                 };
 
@@ -180,21 +175,21 @@ label= "SYM"                               ;
 label= "NAV"                               ;
 // ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 //             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
-//             ┃   LGUI    ┃           ┃           ┃           ┃           ┃   ┃    PGUP   ┃    HOME   ┃     ^     ┃    END    ┃    CAPS    ┃
+//             ┃    LGUI   ┃           ┃           ┃           ┃           ┃   ┃    PGUP   ┃    HOME   ┃     ^     ┃    END    ┃           ┃
 //             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
-//             ┃     ESC   ┃   LSHFT   ┃   LCTRL   ┃    LALT   ┃           ┃   ┃    PGDN   ┃     <     ┃      v    ┃      >    ┃            ┃
+//             ┃    ESC    ┃   LSHFT   ┃   LCTRL   ┃    LALT   ┃           ┃   ┃    PGDN   ┃     <     ┃      v    ┃      >    ┃            ┃
 // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
-// ┃           ┃           ┃           ┃           ┃           ┃           ┃   ┃  L(BSPC)  ┃   BSPC    ┃    DEL    ┃           ┃           ┃           ┃
+// ┃           ┃           ┃           ┃           ┃           ┃           ┃   ┃  L(BSPC)  ┃   BSPC    ┃    DEL    ┃           ┃    CAPS   ┃           ┃
 // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 //                                     ┃           ┃           ┃   LCTRL   ┃   ┃   ENTER   ┃           ┃           ┃
 //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
  bindings = <
 // ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
 
-                &kp LEFT_GUI  &none       &none       &none       &none          &kp PG_UP    &kp HOME    &kp UP      &kp END     &kp CAPS
+                &kp LEFT_GUI  &none       &none       &none       &none          &kp PG_UP    &kp HOME    &kp UP      &kp END     &trans
                 &kp ESC       &sk LSHFT   &sk LCTRL   &sk LALT    &kp RALT       &kp PG_DN    &kp LEFT    &kp DOWN    &kp RIGHT   &trans
-    &none       &none         &none       &none       &none       &none          &kp LC(BSPC) &kp BSPC    &kp DEL     &trans      &trans     &none
-                                          &trans      &trans      &kp LCTRL      &kp ENTER    &mo 3       &trans
+    &none       &none         &none       &none       &none       &none          &kp LC(BSPC) &kp BSPC    &kp DEL     &trans      &kp CAPS     &none
+                                          &trans      &trans      &kp LCTRL      &kp ENTER    &mo NUM     &trans
 
                         >;
                 };
@@ -222,7 +217,7 @@ label= "NUM"                               ;
     &none       &kp N0      &kp N1      &kp N2      &kp N3      &kp EQUAL       &kp COMMA    &kp BSPC   &kp DEL     &trans      &trans      &none
                                         &trans      &kp DOT     &kp SPC         &trans       &trans      &trans
                         >;
-};
+                };
 
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
@@ -245,9 +240,35 @@ label= "ADJ"                               ;
 
                 &sys_reset  &bt BT_CLR &out OUT_TOG &trans      &trans          &trans      &kp F7      &kp F8      &kp F9      &kp F12
                 &bootloader &bt BT_NXT  &trans      &trans      &trans          &trans      &kp F4      &kp F5      &kp F6      &kp F11
-    &trans      &trans      &bt BT_PRV  &trans      &trans      &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10     &trans
+    &none       &trans      &bt BT_PRV  &trans      &trans      &trans          &trans      &kp F1      &kp F2      &kp F3      &kp F10     &none
                                         &trans      &trans      &trans          &trans      &trans      &trans
                         >;
                 };
+
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+
+
+                func_layer {
+// ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+label= "FNC"                               ;
+// ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+//             ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓   ┏━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┳━━━━━━━━━━━┓
+//             ┃     F1    ┃     F2    ┃     F3    ┃     F4    ┃     F5    ┃   ┃     F6    ┃     F7    ┃     F8    ┃     F9    ┃    F10    ┃
+//             ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫
+//             ┃           ┃           ┃           ┃           ┃    F11    ┃   ┃    F12    ┃           ┃           ┃           ┃           ┃
+// ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
+// ┃           ┃           ┃           ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃           ┃           ┃           ┃
+// ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+//                                     ┃           ┃           ┃           ┃   ┃           ┃           ┃           ┃
+//                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
+ bindings = <
+// ╷           ╷           ╷           ╷           ╷           ╷           ╷   ╷           ╷           ╷           ╷           ╷           ╷           ╷
+                &kp F1      &kp F2      &kp F3      &kp F4      &kp F5          &kp F6       &kp F7     &kp F8      &kp F9      &kp F10
+                &trans      &trans      &trans      &trans      &kp F11         &kp F12      &trans     &trans      &trans      &trans
+    &none       &trans      &trans      &trans      &trans      &trans          &trans       &trans     &trans      &trans      &trans      &none
+                                        &trans      &trans      &trans          &trans       &trans     &trans
+                        >;
+                };
+
         };
 };
