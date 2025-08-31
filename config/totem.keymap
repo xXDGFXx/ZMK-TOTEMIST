@@ -143,14 +143,14 @@
             // ┏━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┓
             // ┃           ┃     ~     ┃     ]     ┃     )     ┃     }     ┃     ?     ┃   ┃     -     ┃     |     ┃     ,     ┃     \     ┃     /     ┃           ┃
             // ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┫   ┣━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━╋━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
-            //                                     ┃           ┃    ADJ    ┃    NUM    ┃   ┃           ┃           ┃           ┃
+            //                                     ┃           ┃    FNC    ┃           ┃   ┃           ┃           ┃    NUM    ┃
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
        &kp EXCL   &kp AT    &kp POUND  &kp DOLLAR  &kp PERCENT     &kp CARET  &kp AMPS   &kp ASTRK  &kp DQT        &kp SQT
        &kp GRAVE  &kp LBKT  &kp LPAR   &kp LBRC    &kp EQUAL       &kp PLUS   &kp UNDER  &kp LT     &kp GT         &kp COLON
 &none  &kp TILDE  &kp RBKT  &kp RPAR   &kp RBRC    &kp QUESTION    &kp MINUS  &kp PIPE   &kp COMMA  &kp BACKSLASH  &kp FSLH   &none
-                            &trans     &mo ADJ     &mo NUM         &trans     &none      &trans
+                            &trans     &mo FNC     &trans          &trans     &none      &mo NUM
             >;
         };
 
