@@ -15,6 +15,6 @@ manifest:
   #   path: modules/zmk-keyboards-totem
   - name: prospector-zmk-module
     remote: carrefinho
-    revision: main
+    revision: feat/new-status-screens
   self:
     path: config
