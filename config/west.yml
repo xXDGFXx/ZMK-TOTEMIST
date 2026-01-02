@@ -15,6 +15,6 @@ manifest:
   #   path: modules/zmk-keyboards-totem
   - name: prospector-zmk-module
     remote: carrefinho
-    revision: feat/new-status-screens
+    revision: core/zephyr-4-1
   self:
     path: config
